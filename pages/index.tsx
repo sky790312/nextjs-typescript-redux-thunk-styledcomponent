@@ -50,10 +50,12 @@ export const Home = (): JSX.Element => {
 }
 
 const MainContainer = styled(Container)`
-  display: flex;
+  @media (min-width: 1140px) {
+    display: flex;
 
-  > div {
-    flex: 1;
+    > div {
+      flex: 1;
+    }
   }
 `
 

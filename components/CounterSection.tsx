@@ -45,13 +45,14 @@ export const CounterSection: React.FC = () => {
           setTimer()
         }}
       >
-        <input
+        <StyledInput
           type="text"
+          placeholder="請輸入倒數時間(數字)"
           value={timerInputValue}
           onChange={onTimerInputChange}
         />
         分鐘
-        <button onClick={setTimer}>設定</button>
+        <StyledButton onClick={setTimer}>設定</StyledButton>
       </form>
       <StyledCountDownTimer>
         {toMMSS(countDownTimer.toString())}
@@ -60,7 +61,22 @@ export const CounterSection: React.FC = () => {
   )
 }
 
+const StyledInput = styled.input`
+  padding: 12px 40px;
+`
+
+const StyledButton = styled.button`
+  padding: 12px 40px;
+  margin-left: 20px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.gray};
+`
+
 const StyledCountDownTimer = styled.div`
+  margin: 40px;
   font-size: 10rem;
   color: ${({ theme }) => theme.colors.blue};
 `
