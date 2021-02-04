@@ -1,25 +1,47 @@
+import { useEffect, useRef } from 'react'
 import Head from 'next/head'
 import { RootState } from '@/store/index'
-import { useSelector, shallowEqual } from 'react-redux'
-// import { useCallback } from 'react'
+import { useSelector, shallowEqual, useDispatch } from 'react-redux'
+import { Dispatch } from 'redux'
+import { usersActions } from '@/store/state.users'
 import styled from 'styled-components/'
 import { Container } from '@/GlobalStyles'
 import { CounterSection } from '@/components/CounterSection'
 import { UsersSection } from '@/components/UsersSection'
-import { FAKE_USERS } from '@/constants'
+import { ResultSection } from '@/components/ResultSection'
+import { setRandomNumber } from '@/utils'
 
 export const Home = (): JSX.Element => {
+  const dispatch: Dispatch = useDispatch()
+  const { setWinnerUser } = usersActions
   const timer = useSelector(
     (state: RootState) => state.counter.timer,
     shallowEqual
   )
-  console.log('timer: ', timer)
-  // const { addArticle, removeArticle } = articleActions
+  const users = useSelector(
+    (state: RootState) => state.users.users,
+    shallowEqual
+  )
+  const winnerUser = useSelector(
+    (state: RootState) => state.users.winnerUser,
+    shallowEqual
+  )
+  const firstUpdate = useRef(true)
 
-  // const add = useCallback(
-  //   (article: ArticleSchema) => dispatch(addArticle(article)),
-  //   [addArticle, dispatch]
-  // )
+  useEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false
+      return
+    }
+
+    if (!timer) {
+      const min = users[0].id
+      const max = users[users.length - 1].id
+      const randomWinnerId = setRandomNumber(min, max)
+      const randomWinnerUser = users.find((user) => user.id === randomWinnerId)
+      dispatch(setWinnerUser(randomWinnerUser))
+    }
+  }, [timer, users, dispatch, setWinnerUser])
 
   return (
     <>
@@ -28,8 +50,14 @@ export const Home = (): JSX.Element => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainContainer>
-        <CounterSection />
-        <UsersSection />
+        {winnerUser ? (
+          <ResultSection />
+        ) : (
+          <>
+            <CounterSection />
+            <UsersSection />
+          </>
+        )}
       </MainContainer>
     </>
   )

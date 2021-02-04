@@ -11,3 +11,7 @@ export const toMMSS = (time: string) => {
   const showSecond = seconds < 10 ? '0' + seconds : seconds.toString()
   return showMinute + ':' + showSecond
 }
+
+export const setRandomNumber = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}

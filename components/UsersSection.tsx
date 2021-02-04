@@ -1,14 +1,20 @@
-import React, { useState, useCallback } from 'react'
+import React from 'react'
 import { User } from '@/components/User'
 import styled from 'styled-components/'
-import { FAKE_USERS } from '@/constants'
+import { RootState } from '@/store/index'
+import { useSelector, shallowEqual } from 'react-redux'
 
 export const UsersSection: React.FC = () => {
+  const users = useSelector(
+    (state: RootState) => state.users.users,
+    shallowEqual
+  )
+
   return (
     <div>
       <h1>參與抽獎名單</h1>
       <UsersContainer>
-        {FAKE_USERS.map((user) => (
+        {users.map((user) => (
           <User key={user.id} user={user} />
         ))}
       </UsersContainer>

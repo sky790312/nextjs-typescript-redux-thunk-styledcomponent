@@ -43,7 +43,7 @@ export const CounterSection: React.FC = () => {
 
     dispatch(setTimer(parseInt(timerInputValue, 10)))
     setTimerInputValue('')
-  }, [timerInputValue, dispatch])
+  }, [timerInputValue, dispatch, setTimer])
 
   return (
     <div>

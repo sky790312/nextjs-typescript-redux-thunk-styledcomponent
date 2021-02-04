@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React from 'react'
 import { UserSchema } from '@/schema/userSchema'
 import styled from 'styled-components/'
 
