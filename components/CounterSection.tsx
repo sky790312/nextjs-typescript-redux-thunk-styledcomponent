@@ -3,17 +3,26 @@ import { useInterval } from '@/hooks/useInterval'
 import { DELAY_TIME } from '@/constants'
 import { isNumberString, toMMSS } from '@/utils'
 import styled from 'styled-components/'
+import { useSelector, shallowEqual, useDispatch } from 'react-redux'
+import { Dispatch } from 'redux'
+import { counterActions } from '@/store/state.counter'
+import { RootState } from '@/store/index'
 
 export const CounterSection: React.FC = () => {
-  const [countDownTimer, setCountDownTimer] = useState<number>(0)
+  const dispatch: Dispatch = useDispatch()
+  const { setTimer } = counterActions
   const [timerInputValue, setTimerInputValue] = useState<string>('')
+  const timer = useSelector(
+    (state: RootState) => state.counter.timer,
+    shallowEqual
+  )
 
   useInterval(() => {
-    if (!countDownTimer) {
+    if (!timer) {
       return
     }
 
-    setCountDownTimer((preCountDownTimer) => preCountDownTimer - 1)
+    dispatch(setTimer(timer - 1))
   }, DELAY_TIME)
 
   const onTimerInputChange = useCallback(
@@ -27,14 +36,14 @@ export const CounterSection: React.FC = () => {
     []
   )
 
-  const setTimer = useCallback(() => {
+  const handleTimer = useCallback(() => {
     if (!timerInputValue) {
       return
     }
 
-    setCountDownTimer(parseInt(timerInputValue, 10))
+    dispatch(setTimer(parseInt(timerInputValue, 10)))
     setTimerInputValue('')
-  }, [timerInputValue])
+  }, [timerInputValue, dispatch])
 
   return (
     <div>
@@ -42,7 +51,7 @@ export const CounterSection: React.FC = () => {
       <form
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault()
-          setTimer()
+          handleTimer()
         }}
       >
         <StyledInput
@@ -52,11 +61,9 @@ export const CounterSection: React.FC = () => {
           onChange={onTimerInputChange}
         />
         分鐘
-        <StyledButton onClick={setTimer}>設定</StyledButton>
+        <StyledButton onClick={handleTimer}>設定</StyledButton>
       </form>
-      <StyledCountDownTimer>
-        {toMMSS(countDownTimer.toString())}
-      </StyledCountDownTimer>
+      <StyledCountDownTimer>{toMMSS(timer.toString())}</StyledCountDownTimer>
     </div>
   )
 }

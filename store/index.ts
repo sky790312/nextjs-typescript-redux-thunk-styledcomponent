@@ -1,11 +1,11 @@
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
-import { articleReducer } from '@/store/state.article'
+import { counterReducer } from '@/store/state.counter'
 import { useMemo } from 'react'
 
 const rootReducer = combineReducers({
-  articles: articleReducer,
+  counter: counterReducer,
 })
 
 export type RootState = ReturnType<typeof rootReducer>

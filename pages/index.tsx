@@ -1,22 +1,19 @@
 import Head from 'next/head'
-// import { RootState } from '@/store/index'
-// import { useSelector, shallowEqual, useDispatch } from 'react-redux'
-// import { Article } from '@/components/Article'
-// import { ArticleAddForm } from '@/components/ArticleAddForm'
-// import { ArticleSchema } from '@/schema/articleSchema'
-// import { Dispatch } from 'redux'
-// import { articleActions } from '@/store/state.article'
+import { RootState } from '@/store/index'
+import { useSelector, shallowEqual } from 'react-redux'
 // import { useCallback } from 'react'
 import styled from 'styled-components/'
 import { Container } from '@/GlobalStyles'
 import { CounterSection } from '@/components/CounterSection'
 import { UsersSection } from '@/components/UsersSection'
+import { FAKE_USERS } from '@/constants'
 
 export const Home = (): JSX.Element => {
-  // const dispatch: Dispatch = useDispatch()
-  // const articles = useSelector((state: RootState) => {
-  //   return state.articles.data
-  // }, shallowEqual)
+  const timer = useSelector(
+    (state: RootState) => state.counter.timer,
+    shallowEqual
+  )
+  console.log('timer: ', timer)
   // const { addArticle, removeArticle } = articleActions
 
   // const add = useCallback(
@@ -34,17 +31,6 @@ export const Home = (): JSX.Element => {
         <CounterSection />
         <UsersSection />
       </MainContainer>
-
-      {/* <ArticleAddForm add={add} />
-      <ArticlesContainer>
-        {articles.map((article: ArticleSchema) => (
-          <Article
-            key={article.id}
-            article={article}
-            removeArticle={removeArticle}
-          />
-        ))}
-      </ArticlesContainer> */}
     </>
   )
 }
