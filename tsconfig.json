@@ -4,7 +4,10 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/store/*": ["store/*"],
+      "@/hooks/*": ["hooks/*"],
       "@/schema/*": ["schema/*"],
+      "@/constants": ["constants.ts"],
+      "@/utils": ["utils.ts"],
       "@/GlobalStyles": ["GlobalStyles.tsx"]
     },
     "target": "es5",

@@ -1,26 +1,27 @@
 import Head from 'next/head'
-import { RootState } from '@/store/index'
-import { useSelector, shallowEqual, useDispatch } from 'react-redux'
-import { Article } from '@/components/Article'
-import { ArticleAddForm } from '@/components/ArticleAddForm'
-import { ArticleSchema } from '@/schema/articleSchema'
-import { Dispatch } from 'redux'
-import { articleActions } from '@/store/state.article'
-import { useCallback } from 'react'
+// import { RootState } from '@/store/index'
+// import { useSelector, shallowEqual, useDispatch } from 'react-redux'
+// import { Article } from '@/components/Article'
+// import { ArticleAddForm } from '@/components/ArticleAddForm'
+// import { ArticleSchema } from '@/schema/articleSchema'
+// import { Dispatch } from 'redux'
+// import { articleActions } from '@/store/state.article'
+// import { useCallback } from 'react'
 import styled from 'styled-components/'
 import { FlexCenterContainer } from '@/GlobalStyles'
+import { CounterSection } from '@/components/CounterSection'
 
 export const Home = (): JSX.Element => {
-  const dispatch: Dispatch = useDispatch()
-  const articles = useSelector((state: RootState) => {
-    return state.articles.data
-  }, shallowEqual)
-  const { addArticle, removeArticle } = articleActions
+  // const dispatch: Dispatch = useDispatch()
+  // const articles = useSelector((state: RootState) => {
+  //   return state.articles.data
+  // }, shallowEqual)
+  // const { addArticle, removeArticle } = articleActions
 
-  const add = useCallback(
-    (article: ArticleSchema) => dispatch(addArticle(article)),
-    [addArticle, dispatch]
-  )
+  // const add = useCallback(
+  //   (article: ArticleSchema) => dispatch(addArticle(article)),
+  //   [addArticle, dispatch]
+  // )
 
   return (
     <FlexCenterContainer>
@@ -28,8 +29,9 @@ export const Home = (): JSX.Element => {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <CounterSection />
 
-      <ArticleAddForm add={add} />
+      {/* <ArticleAddForm add={add} />
       <ArticlesContainer>
         {articles.map((article: ArticleSchema) => (
           <Article
@@ -38,7 +40,7 @@ export const Home = (): JSX.Element => {
             removeArticle={removeArticle}
           />
         ))}
-      </ArticlesContainer>
+      </ArticlesContainer> */}
     </FlexCenterContainer>
   )
 }
