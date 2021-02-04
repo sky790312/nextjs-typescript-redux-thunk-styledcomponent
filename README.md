@@ -1,3 +1,8 @@
+```bash
+yarn // install dependency.
+yarn dev // start and develop project.
+```
+
 # NextJS Typescript Boilerplate
 
 Bootstrap a developer-friendly NextJS app configured with:
