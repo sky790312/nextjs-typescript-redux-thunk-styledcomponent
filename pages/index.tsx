@@ -8,8 +8,9 @@ import Head from 'next/head'
 // import { articleActions } from '@/store/state.article'
 // import { useCallback } from 'react'
 import styled from 'styled-components/'
-import { FlexCenterContainer } from '@/GlobalStyles'
+import { Container } from '@/GlobalStyles'
 import { CounterSection } from '@/components/CounterSection'
+import { UsersSection } from '@/components/UsersSection'
 
 export const Home = (): JSX.Element => {
   // const dispatch: Dispatch = useDispatch()
@@ -24,12 +25,15 @@ export const Home = (): JSX.Element => {
   // )
 
   return (
-    <FlexCenterContainer>
+    <>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <CounterSection />
+      <MainContainer>
+        <CounterSection />
+        <UsersSection />
+      </MainContainer>
 
       {/* <ArticleAddForm add={add} />
       <ArticlesContainer>
@@ -41,12 +45,16 @@ export const Home = (): JSX.Element => {
           />
         ))}
       </ArticlesContainer> */}
-    </FlexCenterContainer>
+    </>
   )
 }
 
-const ArticlesContainer = styled.div`
-  padding: 40px;
+const MainContainer = styled(Container)`
+  display: flex;
+
+  > div {
+    flex: 1;
+  }
 `
 
 export default Home

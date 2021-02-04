@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from 'react'
 import { useInterval } from '@/hooks/useInterval'
-import { DELAY } from '@/constants'
-import { isNumberString, toHHMMSS } from '@/utils'
+import { DELAY_TIME } from '@/constants'
+import { isNumberString, toMMSS } from '@/utils'
+import styled from 'styled-components/'
 
 export const CounterSection: React.FC = () => {
   const [countDownTimer, setCountDownTimer] = useState<number>(0)
@@ -13,7 +14,7 @@ export const CounterSection: React.FC = () => {
     }
 
     setCountDownTimer((preCountDownTimer) => preCountDownTimer - 1)
-  }, DELAY)
+  }, DELAY_TIME)
 
   const onTimerInputChange = useCallback(
     (e: React.FormEvent<HTMLInputElement>) => {
@@ -26,7 +27,7 @@ export const CounterSection: React.FC = () => {
     []
   )
 
-  const onSetTimerClick = useCallback(() => {
+  const setTimer = useCallback(() => {
     if (!timerInputValue) {
       return
     }
@@ -37,15 +38,29 @@ export const CounterSection: React.FC = () => {
 
   return (
     <div>
-      抽獎時間
-      <input
-        type="text"
-        value={timerInputValue}
-        onChange={onTimerInputChange}
-      />
-      分鐘
-      <button onClick={onSetTimerClick}>設定</button>
-      {toHHMMSS(countDownTimer.toString())}
+      <h1>抽獎時間</h1>
+      <form
+        onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+          e.preventDefault()
+          setTimer()
+        }}
+      >
+        <input
+          type="text"
+          value={timerInputValue}
+          onChange={onTimerInputChange}
+        />
+        分鐘
+        <button onClick={setTimer}>設定</button>
+      </form>
+      <StyledCountDownTimer>
+        {toMMSS(countDownTimer.toString())}
+      </StyledCountDownTimer>
     </div>
   )
 }
+
+const StyledCountDownTimer = styled.div`
+  font-size: 10rem;
+  color: ${({ theme }) => theme.colors.blue};
+`

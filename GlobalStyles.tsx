@@ -8,6 +8,27 @@ export const FlexCenterContainer = styled.div`
   flex-direction: column;
 `
 
+export const Container = styled.div`
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+
+  @media (min-width: 1140px) {
+    width: 1140px;
+  }
+`
+
+export const theme = {
+  colors: {
+    white: '#fff',
+    black: '#000',
+    gray: '#929292',
+    blue: '#1434d8',
+    yellow: '#d2a90f',
+    lightBlue: '#099bdd',
+  },
+}
+
 export const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
@@ -18,8 +39,7 @@ export const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
+  h1 {
+    font-size: 3rem;
   }
 `
