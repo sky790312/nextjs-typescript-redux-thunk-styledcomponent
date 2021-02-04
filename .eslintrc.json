@@ -44,5 +44,22 @@
         "allow": ["warn", "error"]
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "ecmaFeatures": {
+        "jsx": true,
+        "modules": true
+      },
+      "files": ["*.ts", "*.tsx"],
+      "parserOptions": {
+        "extraFileExtensions": [".ts", ".tsx"],
+        "project": "./tsconfig.json"
+      },
+      "rules": {
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
+      }
+    }
+  ]
 }
