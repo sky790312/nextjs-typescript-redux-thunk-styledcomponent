@@ -1,6 +1,6 @@
 {
-  "name": "with-typescript-eslint-jest",
-  "author": "@erikdstock",
+  "name": "nextjs-typescript-redux-thunk-styledcomponent-example",
+  "author": "Kevin",
   "license": "MIT",
   "version": "1.0.0",
   "scripts": {

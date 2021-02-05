@@ -1,6 +1,8 @@
 ```bash
 yarn // install dependency.
 yarn dev // start and develop project.
+yarn test-all // check all project's test and can combine with CI/CD.
+yarn build // build project and deploy to anywhere.
 ```
 
 # NextJS Typescript Boilerplate

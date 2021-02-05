@@ -1,5 +1,3 @@
-import React from 'react'
-import { render, withProviders } from '@/test/testUtils'
 import { useInterval } from '@/hooks/useInterval'
 
 import { renderHook } from '@testing-library/react-hooks'
