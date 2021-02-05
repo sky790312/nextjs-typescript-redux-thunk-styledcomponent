@@ -1,4 +1,4 @@
-import { isNumberString, toMMSS, setRandomNumber } from '@/utils'
+import { isNumberString, toMMSS, genRandomNumber } from '@/utils'
 
 describe('isNumberString spec', () => {
   it('should check isNumberString correctly', () => {
@@ -29,17 +29,17 @@ describe('toMMSS spec', () => {
   })
 })
 
-describe('setRandomNumber spec', () => {
+describe('genRandomNumber spec', () => {
   it('should check isNumberString correctly', () => {
     const randomNumberRange = {
       min: 1,
       max: 10,
     }
     expect(
-      setRandomNumber(randomNumberRange.min, randomNumberRange.max)
+      genRandomNumber(randomNumberRange.min, randomNumberRange.max)
     ).toBeGreaterThanOrEqual(randomNumberRange.min)
     expect(
-      setRandomNumber(randomNumberRange.min, randomNumberRange.max)
+      genRandomNumber(randomNumberRange.min, randomNumberRange.max)
     ).toBeLessThanOrEqual(randomNumberRange.max)
   })
 })

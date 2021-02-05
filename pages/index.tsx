@@ -9,7 +9,7 @@ import { Container } from '@/GlobalStyles'
 import { CounterSection } from '@/components/CounterSection'
 import { UsersSection } from '@/components/UsersSection'
 import { ResultSection } from '@/components/ResultSection'
-import { setRandomNumber } from '@/utils'
+import { genRandomNumber } from '@/utils'
 
 export const Home = (): JSX.Element => {
   const dispatch: Dispatch = useDispatch()
@@ -37,7 +37,7 @@ export const Home = (): JSX.Element => {
     if (!timer) {
       const min = users[0].id
       const max = users[users.length - 1].id
-      const randomWinnerId = setRandomNumber(min, max)
+      const randomWinnerId = genRandomNumber(min, max)
       const randomWinnerUser = users.find((user) => user.id === randomWinnerId)
       dispatch(setWinnerUser(randomWinnerUser))
     }

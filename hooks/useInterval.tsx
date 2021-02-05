@@ -1,6 +1,13 @@
 import { useRef, useEffect } from 'react'
 
-export function useInterval(callback: () => void, delay) {
+/**
+ *
+ * @param callback () => void
+ * @param delay: number
+ *
+ * sample reusable setInterval hook given delay time and use callback function to handle your logic.
+ */
+export function useInterval(callback: () => void, delay: number) {
   const savedCallback = useRef(null)
 
   useEffect(() => {
