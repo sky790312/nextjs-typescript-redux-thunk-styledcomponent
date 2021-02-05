@@ -13,10 +13,12 @@ export const ResultSection: React.FC = () => {
   return (
     <div>
       <h1>抽獎結果</h1>
-      <ResultContainer>
-        <User user={winnerUser} />
-        <h3>恭喜！！ 🎉🎉🎉</h3>
-      </ResultContainer>
+      {winnerUser && (
+        <ResultContainer>
+          <User user={winnerUser} />
+          <h3>恭喜！！ 🎉🎉🎉</h3>
+        </ResultContainer>
+      )}
     </div>
   )
 }
