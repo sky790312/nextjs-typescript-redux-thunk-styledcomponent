@@ -11,7 +11,14 @@ module.exports = {
     'jest-watch-typeahead/testname',
   ],
   moduleNameMapper: {
-    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
-    '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__mocks__/fileMock.js',
+    '@/pages/(.*)': '<rootDir>/pages/$1',
+    '@/components/(.*)': '<rootDir>/components/$1',
+    '@/store/(.*)': '<rootDir>/store/$1',
+    '@/hooks/(.*)': '<rootDir>/hooks/$1',
+    '@/schema/(.*)': '<rootDir>/schema/$1',
+    '@/test/(.*)': '<rootDir>/test/$1',
+    '@/constants': '<rootDir>/constants.ts',
+    '@/utils': '<rootDir>/utils.ts',
+    '@/GlobalStyles': '<rootDir>/GlobalStyles.ts',
   },
 }

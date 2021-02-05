@@ -3,119 +3,211 @@
 exports[`Home page matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="jsx-2250570153 container"
+    class="GlobalStyles__Container-sc-1lan98s-1 sc-pFZIQ kNXjQR kaEgKM"
   >
-    <main
-      class="jsx-2250570153"
-    >
-      <h1
-        class="jsx-2250570153 title"
-      >
-        Welcome to 
-        <a
-          class="jsx-2250570153"
-          href="https://nextjs.org"
-        >
-          Next.js!
-        </a>
+    <div>
+      <h1>
+        抽獎時間
       </h1>
-      <p
-        class="jsx-2250570153 description"
-      >
-        Get started by editing 
-        <code
-          class="jsx-2250570153"
-        >
-          pages/index.tsx
-        </code>
-      </p>
-      <button
-        class="jsx-2250570153"
-      >
-        Test Button
-      </button>
-      <div
-        class="jsx-2250570153 grid"
-      >
-        <a
-          class="jsx-2250570153 card"
-          href="https://nextjs.org/docs"
-        >
-          <h3
-            class="jsx-2250570153"
-          >
-            Documentation →
-          </h3>
-          <p
-            class="jsx-2250570153"
-          >
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-        <a
-          class="jsx-2250570153 card"
-          href="https://nextjs.org/learn"
-        >
-          <h3
-            class="jsx-2250570153"
-          >
-            Learn →
-          </h3>
-          <p
-            class="jsx-2250570153"
-          >
-            Learn about Next.js in an interactive course with quizzes!
-          </p>
-        </a>
-        <a
-          class="jsx-2250570153 card"
-          href="https://github.com/vercel/next.js/tree/master/examples"
-        >
-          <h3
-            class="jsx-2250570153"
-          >
-            Examples →
-          </h3>
-          <p
-            class="jsx-2250570153"
-          >
-            Discover and deploy boilerplate example Next.js projects.
-          </p>
-        </a>
-        <a
-          class="jsx-2250570153 card"
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        >
-          <h3
-            class="jsx-2250570153"
-          >
-            Deploy →
-          </h3>
-          <p
-            class="jsx-2250570153"
-          >
-            Instantly deploy your Next.js site to a public URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-    <footer
-      class="jsx-2250570153"
-    >
-      <a
-        class="jsx-2250570153"
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Powered by 
-        <img
-          alt="Vercel Logo"
-          class="jsx-2250570153 logo"
-          src="/vercel.svg"
+      <form>
+        <input
+          class="sc-bdfBwQ brYTGD"
+          placeholder="請輸入倒數時間(數字)"
+          type="text"
+          value=""
         />
-      </a>
-    </footer>
+        分鐘
+        <button
+          class="sc-gsTCUz enQJdt"
+        >
+          設定
+        </button>
+      </form>
+      <div
+        class="sc-dlfnbm hWNSxv"
+      >
+        00:00
+      </div>
+    </div>
+    <div>
+      <h1>
+        參與抽獎名單
+      </h1>
+      <div
+        class="sc-iBPRYJ jraeKF"
+      >
+        <div
+          class="sc-hKgILt fpqlYp"
+        >
+          <div
+            class="sc-eCssSg DGqSg"
+          >
+            <div
+              class="sc-gKsewC enHkhf"
+              name="Kevin"
+            />
+          </div>
+          <div
+            class="sc-jSgupP iHAMlZ"
+          >
+            1. Kevin
+          </div>
+        </div>
+        <div
+          class="sc-hKgILt fpqlYp"
+        >
+          <div
+            class="sc-eCssSg DGqSg"
+          >
+            <div
+              class="sc-gKsewC iqPNeF"
+              name="Steve"
+            />
+          </div>
+          <div
+            class="sc-jSgupP iHAMlZ"
+          >
+            2. Steve
+          </div>
+        </div>
+        <div
+          class="sc-hKgILt fpqlYp"
+        >
+          <div
+            class="sc-eCssSg DGqSg"
+          >
+            <div
+              class="sc-gKsewC hyBclv"
+              name="Calvin"
+            />
+          </div>
+          <div
+            class="sc-jSgupP iHAMlZ"
+          >
+            3. Calvin
+          </div>
+        </div>
+        <div
+          class="sc-hKgILt fpqlYp"
+        >
+          <div
+            class="sc-eCssSg DGqSg"
+          >
+            <div
+              class="sc-gKsewC kwmhJH"
+              name="Diana"
+            />
+          </div>
+          <div
+            class="sc-jSgupP iHAMlZ"
+          >
+            4. Diana
+          </div>
+        </div>
+        <div
+          class="sc-hKgILt fpqlYp"
+        >
+          <div
+            class="sc-eCssSg DGqSg"
+          >
+            <div
+              class="sc-gKsewC cIVCVI"
+              name="Joe"
+            />
+          </div>
+          <div
+            class="sc-jSgupP iHAMlZ"
+          >
+            5. Joe
+          </div>
+        </div>
+        <div
+          class="sc-hKgILt fpqlYp"
+        >
+          <div
+            class="sc-eCssSg DGqSg"
+          >
+            <div
+              class="sc-gKsewC kyMgcf"
+              name="Jack"
+            />
+          </div>
+          <div
+            class="sc-jSgupP iHAMlZ"
+          >
+            6. Jack
+          </div>
+        </div>
+        <div
+          class="sc-hKgILt fpqlYp"
+        >
+          <div
+            class="sc-eCssSg DGqSg"
+          >
+            <div
+              class="sc-gKsewC gWGdxi"
+              name="Ray"
+            />
+          </div>
+          <div
+            class="sc-jSgupP iHAMlZ"
+          >
+            7. Ray
+          </div>
+        </div>
+        <div
+          class="sc-hKgILt fpqlYp"
+        >
+          <div
+            class="sc-eCssSg DGqSg"
+          >
+            <div
+              class="sc-gKsewC fpfiqK"
+              name="Allen"
+            />
+          </div>
+          <div
+            class="sc-jSgupP iHAMlZ"
+          >
+            8. Allen
+          </div>
+        </div>
+        <div
+          class="sc-hKgILt fpqlYp"
+        >
+          <div
+            class="sc-eCssSg DGqSg"
+          >
+            <div
+              class="sc-gKsewC gIeqEM"
+              name="Zoe"
+            />
+          </div>
+          <div
+            class="sc-jSgupP iHAMlZ"
+          >
+            9. Zoe
+          </div>
+        </div>
+        <div
+          class="sc-hKgILt fpqlYp"
+        >
+          <div
+            class="sc-eCssSg DGqSg"
+          >
+            <div
+              class="sc-gKsewC gctTvk"
+              name="James"
+            />
+          </div>
+          <div
+            class="sc-jSgupP iHAMlZ"
+          >
+            10. James
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </DocumentFragment>
 `;

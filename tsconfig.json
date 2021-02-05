@@ -2,10 +2,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@/pages/*": ["pages/*"],
       "@/components/*": ["components/*"],
       "@/store/*": ["store/*"],
       "@/hooks/*": ["hooks/*"],
       "@/schema/*": ["schema/*"],
+      "@/test/*": ["test/*"],
       "@/constants": ["constants.ts"],
       "@/utils": ["utils.ts"],
       "@/GlobalStyles": ["GlobalStyles.ts"]
