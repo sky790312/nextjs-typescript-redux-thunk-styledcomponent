@@ -1,5 +1,5 @@
 import React from 'react'
-import { toMMSS } from '@/utils'
+import { showYYMMSS } from '@/utils'
 import styled from 'styled-components/'
 import { useSelector, shallowEqual } from 'react-redux'
 import { RootState } from '@/store/index'
@@ -12,7 +12,7 @@ export const CounterDownTimer: React.FC = () => {
 
   return (
     <div>
-      <StyledCountDownTimer>{toMMSS(timer.toString())}</StyledCountDownTimer>
+      <StyledCountDownTimer>{showYYMMSS(timer)}</StyledCountDownTimer>
     </div>
   )
 }

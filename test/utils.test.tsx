@@ -1,4 +1,4 @@
-import { isNumberString, toMMSS, genRandomNumber } from '@/utils'
+import { isNumberString, showYYMMSS, genRandomNumber } from '@/utils'
 
 describe('isNumberString spec', () => {
   it('should check isNumberString correctly', () => {
@@ -9,23 +9,23 @@ describe('isNumberString spec', () => {
   })
 })
 
-describe('toMMSS spec', () => {
-  it('should format seconds string toMMSS correctly', () => {
+describe('showYYMMSS spec', () => {
+  it('should format seconds string showYYMMSS correctly', () => {
     const time1 = {
       seconds: '59',
       showMMSS: '00:59',
     }
-    expect(toMMSS(time1.seconds)).toBe(time1.showMMSS)
+    expect(showYYMMSS(time1.seconds)).toBe(time1.showMMSS)
     const time2 = {
       seconds: '300',
       showMMSS: '05:00',
     }
-    expect(toMMSS(time2.seconds)).toBe(time2.showMMSS)
+    expect(showYYMMSS(time2.seconds)).toBe(time2.showMMSS)
     const time3 = {
       seconds: '3601',
       showMMSS: '60:01',
     }
-    expect(toMMSS(time3.seconds)).toBe(time3.showMMSS)
+    expect(showYYMMSS(time3.seconds)).toBe(time3.showMMSS)
   })
 })
 
