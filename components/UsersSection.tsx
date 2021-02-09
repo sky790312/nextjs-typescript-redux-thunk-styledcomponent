@@ -4,7 +4,7 @@ import styled from 'styled-components/'
 import { RootState } from '@/store/index'
 import { useSelector, shallowEqual } from 'react-redux'
 
-export const UsersSection: React.FC = () => {
+export const UsersSection: React.FC = React.memo(() => {
   const users = useSelector(
     (state: RootState) => state.users.users,
     shallowEqual
@@ -20,7 +20,8 @@ export const UsersSection: React.FC = () => {
       </UsersContainer>
     </div>
   )
-}
+})
+
 const UsersContainer = styled.div`
   max-height: 480px;
   overflow: auto;

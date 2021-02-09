@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Head from 'next/head'
 import { RootState } from '@/store/index'
 import { useSelector, shallowEqual, useDispatch } from 'react-redux'
@@ -11,57 +11,61 @@ import { UsersSection } from '@/components/UsersSection'
 import { ResultSection } from '@/components/ResultSection'
 import { genRandomNumber } from '@/utils'
 
-export const Home = (): JSX.Element => {
-  const dispatch: Dispatch = useDispatch()
-  const { setWinnerUser } = usersActions
-  const timer = useSelector(
-    (state: RootState) => state.counter.timer,
-    shallowEqual
-  )
-  const users = useSelector(
-    (state: RootState) => state.users.users,
-    shallowEqual
-  )
-  const winnerUser = useSelector(
-    (state: RootState) => state.users.winnerUser,
-    shallowEqual
-  )
-  const firstUpdate = useRef(true)
+export const Home = React.memo(
+  (): JSX.Element => {
+    const dispatch: Dispatch = useDispatch()
+    const { setWinnerUser } = usersActions
+    const timer = useSelector(
+      (state: RootState) => state.counter.timer,
+      shallowEqual
+    )
+    const users = useSelector(
+      (state: RootState) => state.users.users,
+      shallowEqual
+    )
+    const winnerUser = useSelector(
+      (state: RootState) => state.users.winnerUser,
+      shallowEqual
+    )
+    const firstUpdate = useRef(true)
 
-  useEffect(() => {
-    if (firstUpdate.current) {
-      firstUpdate.current = false
-      return
-    }
+    useEffect(() => {
+      if (firstUpdate.current) {
+        firstUpdate.current = false
+        return
+      }
 
-    if (!timer) {
-      const min = users[0].id
-      const max = users[users.length - 1].id
-      const randomWinnerId = genRandomNumber(min, max)
-      const randomWinnerUser = users.find((user) => user.id === randomWinnerId)
-      dispatch(setWinnerUser(randomWinnerUser))
-    }
-  }, [timer, users, dispatch, setWinnerUser])
+      if (!timer) {
+        const min = users[0].id
+        const max = users[users.length - 1].id
+        const randomWinnerId = genRandomNumber(min, max)
+        const randomWinnerUser = users.find(
+          (user) => user.id === randomWinnerId
+        )
+        dispatch(setWinnerUser(randomWinnerUser))
+      }
+    }, [timer, users, dispatch, setWinnerUser])
 
-  return (
-    <>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <MainContainer>
-        {winnerUser ? (
-          <ResultSection />
-        ) : (
-          <>
-            <CounterSection />
-            <UsersSection />
-          </>
-        )}
-      </MainContainer>
-    </>
-  )
-}
+    return (
+      <>
+        <Head>
+          <title>Create Next App</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <MainContainer>
+          {winnerUser ? (
+            <ResultSection />
+          ) : (
+            <>
+              <CounterSection />
+              <UsersSection />
+            </>
+          )}
+        </MainContainer>
+      </>
+    )
+  }
+)
 
 const MainContainer = styled(Container)`
   @media (min-width: 1140px) {
