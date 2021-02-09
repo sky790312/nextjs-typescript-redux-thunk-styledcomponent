@@ -72,7 +72,7 @@ const MainContainer = styled(Container)`
     display: flex;
 
     > div {
-      flex: 1;
+      width: 50%;
     }
   }
 `

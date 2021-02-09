@@ -10,15 +10,11 @@ export const CounterDownTimer: React.FC = () => {
     shallowEqual
   )
 
-  return (
-    <div>
-      <StyledCountDownTimer>{showYYMMSS(timer)}</StyledCountDownTimer>
-    </div>
-  )
+  return <StyledCountDownTimer>{showYYMMSS(timer)}</StyledCountDownTimer>
 }
 
 const StyledCountDownTimer = styled.div`
-  margin: 40px;
-  font-size: 10rem;
+  margin: 100px 0;
+  font-size: 6rem;
   color: ${({ theme }) => theme.colors.blue};
 `

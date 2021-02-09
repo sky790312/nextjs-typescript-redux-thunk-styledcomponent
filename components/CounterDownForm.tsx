@@ -43,23 +43,21 @@ export const CounterDownForm: React.FC = React.memo(() => {
   }
 
   return (
-    <div>
-      <form
-        onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
-          e.preventDefault()
-          handleTimer()
-        }}
-      >
-        <StyledInput
-          type="text"
-          placeholder="請輸入倒數時間(數字)"
-          value={timerInputValue}
-          onChange={onTimerInputChange}
-        />
-        分鐘
-        <StyledButton onClick={handleTimer}>設定</StyledButton>
-      </form>
-    </div>
+    <form
+      onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        handleTimer()
+      }}
+    >
+      <StyledInput
+        type="text"
+        placeholder="請輸入倒數時間(數字)"
+        value={timerInputValue}
+        onChange={onTimerInputChange}
+      />
+      分鐘
+      <StyledButton onClick={handleTimer}>設定</StyledButton>
+    </form>
   )
 })
 
